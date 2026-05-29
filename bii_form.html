@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BII Assessment — NIA REDI</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh; padding: 0 0 60px;
+  }
+  .top-nav {
+    width: 100%; background: #fff; border-bottom: 1px solid #e5e7eb;
+    padding: 12px 24px; display: flex; align-items: center; gap: 10px;
+    position: sticky; top: 0; z-index: 50;
+  }
+  .top-nav a {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; font-size: 13px; font-weight: 600;
+    color: #374151; padding: 6px 14px; border-radius: 20px;
+    background: #f3f4f6; border: 1px solid #e5e7eb; transition: background 0.15s;
+  }
+  .top-nav a:hover { background: #e5e7eb; }
+  .page-wrap { max-width: 560px; margin: 0 auto; padding: 32px 20px 0; }
+  .page-header {
+    background: linear-gradient(135deg, #4338ca 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px; padding: 32px 36px 28px; color: white; margin-bottom: 20px;
+  }
+  .page-header .overline { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+  .page-header h1 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+  .page-header .sub { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .howto-card {
+    background: white; border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.06);
+    padding: 20px 24px; margin-bottom: 20px;
+  }
+  .howto-title { font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 14px; }
+  .step { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #f3f4f6; border: 1.5px solid #e5e7eb;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: #374151;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .step-text { font-size: 13px; color: #374151; line-height: 1.6; }
+  .step-text strong { font-weight: 700; color: #111827; }
+  .step-text a { color: #4338ca; font-weight: 600; text-decoration: none; }
+  .step-text a:hover { text-decoration: underline; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9ca3af; margin-bottom: 12px; }
+  .cohort-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+  .cohort-card {
+    display: block; text-decoration: none; background: white; border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.07);
+    border: 2px solid transparent; padding: 22px 24px;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  }
+  .cohort-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+  .cohort-card.c1:hover { border-color: #bfdbfe; }
+  .cohort-card.c2:hover { border-color: #a7f3d0; }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+  .card-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .c1 .card-icon { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
+  .c2 .card-icon { background: linear-gradient(135deg, #064e3b, #047857); }
+  .card-meta { flex: 1; }
+  .card-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .c1 .card-tag { color: #1d4ed8; }
+  .c2 .card-tag { color: #065f46; }
+  .card-title { font-size: 18px; font-weight: 800; color: #111827; margin-bottom: 3px; }
+  .card-dates { font-size: 13px; color: #6b7280; }
+  .card-assessment { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; margin-bottom: 14px; }
+  .c1 .card-assessment { background: #eff6ff; }
+  .c2 .card-assessment { background: #ecfdf5; }
+  .assessment-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .c1 .assessment-dot { background: #2563eb; }
+  .c2 .assessment-dot { background: #16a34a; }
+  .assessment-text { font-size: 13px; font-weight: 600; }
+  .c1 .assessment-text { color: #1e40af; }
+  .c2 .assessment-text { color: #15803d; }
+  .assessment-sub { font-size: 12px; color: #6b7280; margin-left: auto; }
+  .card-cta { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid #f3f4f6; }
+  .cta-label { font-size: 13px; font-weight: 700; color: #374151; }
+  .cta-arrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: white; padding: 7px 16px; border-radius: 20px; }
+  .c1 .cta-arrow { background: #1d4ed8; }
+  .c2 .cta-arrow { background: #16a34a; }
+  .footer-note { text-align: center; font-size: 11.5px; color: #9ca3af; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">← Home</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="overline">IMPRINT Deliverable · NIA REDI</div>
+    <h1>📊 BII Assessment</h1>
+    <div class="sub">Select your cohort below to open the correct submission form. You'll be taken to a secure Google Form to upload your results.</div>
+  </div>
+
+  <div class="howto-card">
+    <div class="howto-title">How to submit your BII results</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">Complete the BII at <a href="https://innovation.berkeley.edu/bii" target="_blank">innovation.berkeley.edu/bii ↗</a></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Screenshot your results page</strong> showing your scores for openness, trust, resilience, etc.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">Select your cohort below and upload your screenshot in the Google Form</div>
+    </div>
+  </div>
+
+  <div class="section-label">Select Your Cohort</div>
+  <div class="cohort-cards">
+
+    <!-- COHORT 1: replace href with your actual Google Form URL -->
+    <a class="cohort-card c1"
+       href="https://forms.gle/REPLACE_WITH_COHORT1_FORM_URL"
+       target="_blank" rel="noopener noreferrer">
+      <div class="card-top">
+        <div class="card-icon">📋</div>
+        <div class="card-meta">
+          <div class="card-tag">Cohort 1 · Outgoing</div>
+          <div class="card-title">Post-Program BII</div>
+          <div class="card-dates">Immersion Week · July 20–26, 2026</div>
+        </div>
+      </div>
+      <div class="card-assessment">
+        <div class="assessment-dot"></div>
+        <div class="assessment-text">Post-Program Assessment</div>
+        <div class="assessment-sub">End of program · Cohort 1</div>
+      </div>
+      <div class="card-cta">
+        <div class="cta-label">Open Google Form</div>
+        <div class="cta-arrow">Submit ↗</div>
+      </div>
+    </a>
+
+    <!-- COHORT 2: replace href with your actual Google Form URL -->
+    <a class="cohort-card c2"
+       href="https://forms.gle/REPLACE_WITH_COHORT2_FORM_URL"
+       target="_blank" rel="noopener noreferrer">
+      <div class="card-top">
+        <div class="card-icon">📋</div>
+        <div class="card-meta">
+          <div class="card-tag">Cohort 2 · Incoming</div>
+          <div class="card-title">Pre-Program BII</div>
+          <div class="card-dates">Immersion Week · July 27–Aug 2, 2026</div>
+        </div>
+      </div>
+      <div class="card-assessment">
+        <div class="assessment-dot"></div>
+        <div class="assessment-text">Pre-Program Assessment</div>
+        <div class="assessment-sub">Start of program · Cohort 2</div>
+      </div>
+      <div class="card-cta">
+        <div class="cta-label">Open Google Form</div>
+        <div class="cta-arrow">Submit ↗</div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="footer-note">
+    Your results are submitted directly to a secure Google Form managed by the NIA REDI program team.<br>
+    This page does not collect or store any data.
+  </div>
+
+</div>
+</body>
+</html>

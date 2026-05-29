@@ -8,7 +8,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f3f4f6;
+      background: #f0f2f5;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -36,67 +36,60 @@
       color: #93c5fd;
       margin-bottom: 10px;
     }
-    .header h1 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 6px;
+    .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .header-sub { font-size: 13px; color: #bfdbfe; }
+
+    .section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #9ca3af;
+      padding: 20px 24px 8px;
     }
-    .header-sub {
-      font-size: 13px;
-      color: #bfdbfe;
-    }
-    .cohorts {
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .cohorts { padding: 0 24px 8px; display: flex; flex-direction: column; gap: 12px; }
+
     .cohort-btn {
-      display: block;
-      text-decoration: none;
-      border-radius: 14px;
-      overflow: hidden;
+      display: block; text-decoration: none;
+      border-radius: 14px; overflow: hidden;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       transition: transform 0.15s, box-shadow 0.15s;
     }
-    .cohort-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.13);
-    }
+    .cohort-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.13); }
     .cohort-inner {
-      padding: 20px 24px;
-      color: #fff;
+      padding: 18px 24px; color: #fff;
+      display: flex; align-items: center; gap: 16px;
     }
+    .cohort-icon { font-size: 26px; flex-shrink: 0; }
+    .cohort-text { flex: 1; }
     .c1 { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
     .c2 { background: linear-gradient(135deg, #064e3b, #047857); }
-    .cohort-label {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      opacity: 0.75;
-      margin-bottom: 6px;
+    .cohort-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px; }
+    .cohort-title { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+    .cohort-dates { font-size: 12px; opacity: 0.75; }
+    .cohort-arrow { font-size: 18px; opacity: 0.6; }
+
+    .divider { height: 1px; background: #f3f4f6; margin: 12px 24px; }
+    .bii-section { padding: 0 24px 24px; }
+    .bii-btn {
+      display: flex; text-decoration: none;
+      align-items: center; gap: 16px;
+      border-radius: 14px; border: 2px solid #e5e7eb;
+      padding: 16px 20px;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
     }
-    .cohort-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 4px;
+    .bii-btn:hover { border-color: #6366f1; background: #fafafa; transform: translateY(-1px); }
+    .bii-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
     }
-    .cohort-dates {
-      font-size: 13px;
-      opacity: 0.8;
-    }
-    .cohort-arrow {
-      float: right;
-      font-size: 20px;
-      margin-top: -2px;
-      opacity: 0.7;
-    }
-    .footer {
-      text-align: center;
-      padding: 16px 24px 24px;
-      font-size: 11px;
-      color: #9ca3af;
-    }
+    .bii-text { flex: 1; }
+    .bii-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #9ca3af; margin-bottom: 3px; }
+    .bii-title { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 2px; }
+    .bii-sub   { font-size: 12px; color: #6b7280; }
+    .bii-arrow { font-size: 18px; color: #9ca3af; }
+
+    .footer { text-align: center; padding: 12px 24px 20px; font-size: 11px; color: #9ca3af; }
   </style>
 </head>
 <body>
@@ -106,25 +99,49 @@
       <h1>Bay Area Immersion Week</h1>
       <div class="header-sub">July 2026 · Berkeley &amp; South San Francisco</div>
     </div>
+
+    <div class="section-label">Cohort Schedules</div>
     <div class="cohorts">
-      <a class="cohort-btn" href="Cohort #1 outgoing/cohort1_week.html">
+      <a class="cohort-btn" href="cohort1/cohort1_week.html">
         <div class="cohort-inner c1">
-          <span class="cohort-arrow">→</span>
-          <div class="cohort-label">Cohort 1 · Outgoing</div>
-          <div class="cohort-title">Week 1 Schedule</div>
-          <div class="cohort-dates">July 20 – 26, 2026</div>
+          <div class="cohort-icon">📋</div>
+          <div class="cohort-text">
+            <div class="cohort-label">Cohort 1 · Outgoing</div>
+            <div class="cohort-title">Week 1 Schedule</div>
+            <div class="cohort-dates">July 20 – 26, 2026</div>
+          </div>
+          <div class="cohort-arrow">→</div>
         </div>
       </a>
-      <a class="cohort-btn" href="Cohort #2 incoming/cohort2_week.html">
+      <a class="cohort-btn" href="cohort2/cohort2_week.html">
         <div class="cohort-inner c2">
-          <span class="cohort-arrow">→</span>
-          <div class="cohort-label">Cohort 2 · Incoming</div>
-          <div class="cohort-title">Week 2 Schedule</div>
-          <div class="cohort-dates">July 27 – August 2, 2026</div>
+          <div class="cohort-icon">📋</div>
+          <div class="cohort-text">
+            <div class="cohort-label">Cohort 2 · Incoming</div>
+            <div class="cohort-title">Week 2 Schedule</div>
+            <div class="cohort-dates">July 27 – August 2, 2026</div>
+          </div>
+          <div class="cohort-arrow">→</div>
         </div>
       </a>
     </div>
-    <div class="footer">Select your cohort to view the full itinerary</div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Assessment</div>
+    <div class="bii-section">
+      <a class="bii-btn" href="bii_form.html">
+        <div class="bii-icon">📊</div>
+        <div class="bii-text">
+          <div class="bii-label">IMPRINT Deliverable</div>
+          <div class="bii-title">Submit BII Assessment</div>
+          <div class="bii-sub">Berkeley Innovation Index · Pre &amp; Post</div>
+        </div>
+        <div class="bii-arrow">→</div>
+      </a>
+    </div>
+
+    <div class="footer">NIA REDI · Neurotech Collider Lab · Bakar Labs, UC Berkeley</div>
   </div>
 </body>
 </html>
