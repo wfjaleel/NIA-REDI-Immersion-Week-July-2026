@@ -88,6 +88,7 @@
   .status-planned { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
   .status-tbd     { background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; }
   .status-weekend { background: #f9fafb; color: #9ca3af; border: 1px solid #f3f4f6; }
+  .status-draft   { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
 
   .stop-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
   .stop-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: #374151; line-height: 1.4; }
@@ -298,41 +299,47 @@
     </div>
   </div>
 
-  <!-- SATURDAY -->
+  <!-- SATURDAY — PRESENTATIONS & LUNCH -->
   <div class="day-card">
-    <div class="day-date-col weekend">
+    <div class="day-date-col weekend highlight-col">
       <div class="day-name">Sat</div><div class="day-num">25</div><div class="day-month">Jul</div>
     </div>
     <div class="day-content">
       <div class="day-content-top">
-        <div class="day-title">— Weekend · Add Activities if Needed —</div>
-        <span class="status-chip status-weekend">🌤 Weekend</span>
+        <div class="day-title">📊 Presentations &amp; Lunch Celebration</div>
+        <span class="status-chip status-draft">⏳ Pending</span>
       </div>
-      <div class="placeholder-block">
-        <div class="ph-row"><span class="ph-icon">🕐</span><div class="ph-line short"></div></div>
-        <div class="ph-row"><span class="ph-icon">📍</span><div class="ph-line med"></div></div>
-        <div class="ph-row"><span class="ph-icon">📍</span><div class="ph-line"></div></div>
+      <div class="stop-list">
+        <div class="stop-item">
+          <span class="s-time">9:00 AM</span><span class="s-icon">🎤</span>
+          <span><span class="s-name">Final Presentations</span> <span class="s-detail">· Location TBD</span></span>
+        </div>
+        <div class="stop-item">
+          <span class="s-time">12:30 PM</span><span class="s-icon">🍴</span>
+          <span><span class="s-name">Lunch Celebration</span> <span class="s-detail">· Location TBD</span></span>
+        </div>
       </div>
-      <div class="day-notes">Saturday — free day or optional activities.</div>
+      <div class="day-notes">Final cohort presentations followed by a celebratory group lunch.</div>
     </div>
   </div>
 
-  <!-- SUNDAY -->
+  <!-- SUNDAY — LUNCH CELEBRATION (BACKUP) -->
   <div class="day-card">
-    <div class="day-date-col weekend">
+    <div class="day-date-col weekend highlight-col">
       <div class="day-name">Sun</div><div class="day-num">26</div><div class="day-month">Jul</div>
     </div>
     <div class="day-content">
       <div class="day-content-top">
-        <div class="day-title">— Weekend · Add Activities if Needed —</div>
-        <span class="status-chip status-weekend">🌤 Weekend</span>
+        <div class="day-title">🍴 Lunch Celebration</div>
+        <span class="status-chip status-draft">⏳ Pending</span>
       </div>
-      <div class="placeholder-block">
-        <div class="ph-row"><span class="ph-icon">🕐</span><div class="ph-line short"></div></div>
-        <div class="ph-row"><span class="ph-icon">📍</span><div class="ph-line med"></div></div>
-        <div class="ph-row"><span class="ph-icon">📍</span><div class="ph-line"></div></div>
+      <div class="stop-list">
+        <div class="stop-item">
+          <span class="s-time">TBD</span><span class="s-icon">🍴</span>
+          <span><span class="s-name">Lunch Celebration (Backup)</span> <span class="s-detail">· Location TBD</span></span>
+        </div>
       </div>
-      <div class="day-notes">Sunday — free day or optional activities.</div>
+      <div class="day-notes">Potential alternate day for the celebratory group lunch.</div>
     </div>
   </div>
 
@@ -341,7 +348,7 @@
     <div class="ws-divider"></div>
     <div class="ws-item"><div class="ws-label">Tour confirmed</div><div class="ws-val">J&amp;J</div></div>
     <div class="ws-divider"></div>
-    <div class="ws-item"><div class="ws-label">TBD days</div><div class="ws-val">3</div></div>
+    <div class="ws-item"><div class="ws-label">TBD days</div><div class="ws-val">3 · +2 pending</div></div>
     <div class="ws-divider"></div>
     <div class="ws-item"><div class="ws-label">Cohort</div><div class="ws-val">1 · Outgoing</div></div>
     <div style="flex:1; text-align:right;">
